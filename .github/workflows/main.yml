@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ selfhost ]
   pull_request:
-    branches: [ main ]
+    branches: [ selfhost ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,5 +32,11 @@ jobs:
         with: 
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: deploy
+          secrets: |
+            DOMAIN
+          environment: production
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{secrets.CLOUDFLARE_ACCOUNT_ID}}
+          DOMAIN: ${{ secrets.DOMAIN }}
+          
+        

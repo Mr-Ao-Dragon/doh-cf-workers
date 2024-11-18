@@ -1,9 +1,8 @@
-name = "doh"
+name = "cloudflare-dns1"
 workers_dev = true
-# route = "example.com/dns-query"
 compatibility_date = "2024-01-26"
-
 main = "index.js"
+route = { pattern = "dns1.gfw-is-make-by-sh1t.asia", custom_domain = true }
 
 [placement]
 mode = "smart"
